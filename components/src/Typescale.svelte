@@ -1,88 +1,41 @@
 <script>
-  
-</script>
+  import { onMount } from 'svelte';
 
-<style global>
-  :root {
+  const scales = {
+    MINOR_SECOND: 1.067,
+    MAJOR_SECOND: 1.125,
+    MINOR_THRID: 1.2,
+    MAJOR_THRID: 1.25,
+    PERFECT_FOURTH: 1.333,
+    AUGMENTED_FOURTH: 1.414,
+    PERFECT_FIFTH: 1.5,
+    GOLDEN_RATIO: 1.618
+  };
 
-    /* typescale (minor second) */
-    /* --typescale-1: 1.383rem;
-    --typescale-2: 1.296rem;
-    --typescale-3: 1.215rem;
-    --typescale-4: 1.138rem;
-    --typescale-5: 1.067rem;
-    --typescale-paragraph: 1rem;
-    --typescale-helper: 0.937rem;
-    --typescale-copyright: 0.878rem; */
+  export let scale = scales.MAJOR_SECOND;
 
-    /* typescale (major second) */
-    /* --typescale-1: 1.802rem;
-    --typescale-2: 1.602rem;
-    --typescale-3: .1424rem;
-    --typescale-4: 1.266rem;
-    --typescale-5: 1.125rem;
-    --typescale-paragraph: 1rem;
-    --typescale-helper: 0.889rem;
-    --typescale-copyright: 0.79rem; */
+  onMount(() => {
+    setTypescale();
+  });
 
-    /* typescale (minor third) */
-    --typescale-1: 2.488rem;
-    --typescale-2: 2.074rem;
-    --typescale-3: 1.728rem;
-    --typescale-4: 1.44rem;
-    --typescale-5: 1.2rem;
-    --typescale-paragraph: 1rem;
-    --typescale-helper: 0.833rem;
-    --typescale-copyright: 0.694rem;
-
-    /* typescale (major third) */
-    /* --typescale-1: 3.052rem;
-    --typescale-2: 2.441rem;
-    --typescale-3: 1.953rem;
-    --typescale-4: 1.563rem;
-    --typescale-5: 1.25rem;
-    --typescale-paragraph: 1rem;
-    --typescale-helper: 0.8rem;
-    --typescale-copyright: 0.64rem; */
-
-    /* typescale (perfect fourth) */
-    /* --typescale-1: 4.209rem;
-    --typescale-2: 3.157rem;
-    --typescale-3: 2.369rem;
-    --typescale-4: 1.777rem;
-    --typescale-5: 1.333rem;
-    --typescale-paragraph: 1rem;
-    --typescale-helper: 0.75rem;
-    --typescale-copyright: 0.563rem; */
-
-    /* typescale (augmented fourth) */
-    /* --typescale-1: 5.653rem;
-    --typescale-2: 3.998rem;
-    --typescale-3: 2.827rem;
-    --typescale-4: 1.999rem;
-    --typescale-5: 1.414rem;
-    --typescale-paragraph: 1rem;
-    --typescale-helper: 0.707rem;
-    --typescale-copyright: 0.5rem; */
-
-    /* typescale (perfect fifth) */
-    /* --typescale-1: 7.594rem;
-    --typescale-2: 5.063rem;
-    --typescale-3: 3.375rem;
-    --typescale-4: 2.25rem;
-    --typescale-5: 1.5rem;
-    --typescale-paragraph: 1rem;
-    --typescale-helper: 0.667rem;
-    --typescale-copyright: 0.444rem; */
-
-    /* typescale (golden ratio) */
-    /* --typescale-1: 11.089rem;
-    --typescale-2: 6.854rem;
-    --typescale-3: 4.236rem;
-    --typescale-4: 2.618rem;
-    --typescale-5: 1.618rem;
-    --typescale-paragraph: 1rem;
-    --typescale-helper: 0.618rem;
-    --typescale-copyright: 0.382rem; */
+  function setTypescale() {
+    const paragraph = 1;
+    const h6 = 1;
+    const h5 = scale;
+    const h4 = h5 * scale;
+    const h3 = h4 * scale;
+    const h2 = h3 * scale;
+    const h1 = h2 * scale;
+    const helper = paragraph / scale;
+    const copyright = helper / scale;
+    document.documentElement.style.setProperty(`--typescale-1`, `${h1.toFixed(2)}rem`);
+    document.documentElement.style.setProperty(`--typescale-2`, `${h2.toFixed(2)}rem`);
+    document.documentElement.style.setProperty(`--typescale-3`, `${h3.toFixed(2)}rem`);
+    document.documentElement.style.setProperty(`--typescale-4`, `${h4.toFixed(2)}rem`);
+    document.documentElement.style.setProperty(`--typescale-5`, `${h5.toFixed(2)}rem`);
+    document.documentElement.style.setProperty(`--typescale-6`, `${h6.toFixed(2)}rem`);
+    document.documentElement.style.setProperty(`--typescale-paragraph`, `${paragraph.toFixed(2)}rem`);
+    document.documentElement.style.setProperty(`--typescale-helper`, `${helper.toFixed(2)}rem`);
+    document.documentElement.style.setProperty(`--typescale-copyright`, `${copyright.toFixed(2)}rem`);
   }
-</style>
+</script>

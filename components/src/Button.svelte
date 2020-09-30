@@ -128,7 +128,7 @@
   }
 
   .xl {
-    font-size: var(--typescale-h5);
+    font-size: var(--typescale-5);
     padding: var(--s6) var(--s10);
   }
 </style>

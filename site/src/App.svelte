@@ -22,7 +22,7 @@
 
 <Colors />
 <Spacing />
-<Typescale />
+<Typescale scale={1.125} />
 <main>
 	<h1>Buttons</h1>
 	<select bind:value={color}>
