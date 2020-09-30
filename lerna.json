@@ -1,0 +1,7 @@
+{
+  "packages": [
+    "components",
+    "site"
+  ],
+  "version": "0.0.0"
+}
