@@ -16,7 +16,9 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
+    "postcss": "^8.1.1",
     "sirv-cli": "^1.0.0",
+    "svelte-preprocess": "^4.3.2",
     "svelte-substrate": "file:../components"
   }
 }
