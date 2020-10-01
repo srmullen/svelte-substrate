@@ -18,7 +18,7 @@
   export let size = sizes.MD;
   export let variant = variants.SOLID;
   export let variantColor = 'gray';
-  export let isLoading = false;
+  export let disabled;
 
   let ref;
 
@@ -34,6 +34,7 @@
 <button 
   class="substrate {variant} {size}"
   bind:this={ref}
+  {disabled}
   on:click
   on:hover
   on:focus
@@ -56,13 +57,17 @@
     font-weight: 600;
   }
 
+  button:disabled {
+    opacity: 0.5;
+  }
+
   .solid {
     color: white;
     background-color: var(--variant-color);
     transition: background-color 0.2s ease-in-out;
   }
 
-  .solid:hover {
+  .solid:hover:enabled {
     background-color: var(--variant-color-darker);
   }
 
@@ -72,7 +77,7 @@
     transition: background-color 0.2s ease-in-out;
   }
 
-  .ghost:hover {
+  .ghost:hover:enabled {
     background-color: var(--variant-color-lighter);
   }
 
@@ -83,7 +88,7 @@
     transition: background-color 0.2s ease-in-out;
   }
 
-  .outline:hover {
+  .outline:hover:enabled {
     background-color: var(--variant-color-lighter);
     transition: background-color 0.2s ease-in-out;
   }
@@ -103,7 +108,7 @@
     margin: var(--s4);
   }
 
-  .link:hover {
+  .link:hover:enabled {
     text-decoration: underline;
   }
 

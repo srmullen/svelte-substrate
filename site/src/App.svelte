@@ -64,6 +64,13 @@
 		<Button size="xl" variantColor={color} variant="outline" on:click={onClick}>Button</Button>
 		<Button size="xl" variantColor={color} variant="link" on:click={onClick}>Button</Button>
 	</div>
+
+	<div class="buttons">
+		<Button size="md" variantColor={color} variant="solid" on:click={onClick} disabled>Button</Button>
+		<Button size="md" variantColor={color} variant="ghost" on:click={onClick} disabled>Button</Button>
+		<Button size="md" variantColor={color} variant="outline" on:click={onClick} disabled>Button</Button>
+		<Button size="md" variantColor={color} variant="link" on:click={onClick} disabled>Button</Button>
+	</div>
 </main>
 
 <style>
