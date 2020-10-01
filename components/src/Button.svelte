@@ -48,7 +48,7 @@
   }
 
   button {
-    border-radius: 6px;
+    border-radius: 4px;
     border: none;
     cursor: pointer;
     user-select: none;
